@@ -1,0 +1,247 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import imgProduct1 from '../assets/cold_room_1.png';
+import imgProduct2 from '../assets/cold_room_2.png';
+import imgProduct3 from '../assets/cold_room_3.png';
+
+const products = [
+  {
+    title: 'Cámaras Frigoríficas de Congelación',
+    category: 'Congelación Rápida (-18°C a -25°C)',
+    image: imgProduct1,
+    desc: 'Cuartos fríos diseñados para mantener productos a temperaturas bajo cero extremas con alta eficiencia térmica. Equipados con cortinas de lamas térmicas y desescarche automático inteligente.',
+    specs: [
+      'Paneles sándwich de poliuretano inyectado de 120 mm',
+      'Puertas frigoríficas herméticas con resistencia calefactora perimetral',
+      'Sistemas de monitoreo continuo telemático vía app y web',
+      'Piso reforzado antideslizante apto para estibadores'
+    ]
+  },
+  {
+    title: 'Cuartos Fríos de Conservación',
+    category: 'Refrigeración (0°C a +8°C)',
+    image: imgProduct2,
+    desc: 'Solución ideal para el mantenimiento de la cadena de frío de frutas, verduras, lácteos, flores y medicinas. Mantiene la humedad relativa óptima para preservar el producto sin deshidratarlo.',
+    specs: [
+      'Paneles modulares de poliuretano de 80 mm',
+      'Evaporadores silenciosos de bajo flujo de aire',
+      'Iluminación LED interior de bajo consumo sin emisión de calor',
+      'Termostato digital de alta precisión ±0.5°C'
+    ]
+  },
+  {
+    title: 'Unidades Frigoríficas Móviles y Contenedores',
+    category: 'Transporte & Eventos (Móvil)',
+    image: imgProduct3,
+    desc: 'Unidades de refrigeración portátiles instaladas sobre remolques o contenedores aislados. Perfectas para expansión temporal de almacenamiento o logística de distribución fría.',
+    specs: [
+      'Contenedores ISO insulated de 20 y 40 pies',
+      'Generador diésel auxiliar o conexión trifásica 220V/440V',
+      'Estructura de fácil traslado con montacargas o grúa',
+      'Sistema de amarre y seguridad anti-robo'
+    ]
+  }
+];
+---
+
+<Layout title="Productos | ClimaCold - Alquiler de Cuartos Fríos" activePage="productos">
+  <section class="page-header">
+    <div class="container text-center">
+      <span class="badge" style="color:#fff;">CATÁLOGO COMPLETO</span>
+      <h1 class="page-title">Nuestra Gama de Cuartos Fríos</h1>
+      <p class="page-subtitle">
+        Equipamiento frigorífico industrial y comercial disponible para alquiler diario, mensual o anual.
+      </p>
+    </div>
+  </section>
+
+  <section class="products-list-section">
+    <div class="container">
+      <div class="products-list">
+        {products.map((item, index) => (
+          <div class={`product-row glass-card ${index % 2 === 1 ? 'reverse' : ''}`}>
+            <div class="product-img-box">
+              <Image src={item.image} alt={item.title} class="product-img-full" />
+              <span class="product-category-tag">{item.category}</span>
+            </div>
+            <div class="product-info-box">
+              <h2 class="product-title">{item.title}</h2>
+              <p class="product-desc">{item.desc}</p>
+              
+              <div class="specs-block">
+                <h4>Especificaciones Técnicas:</h4>
+                <ul>
+                  {item.specs.map(spec => (
+                    <li>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span>{spec}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div class="product-actions">
+                <a href={`https://wa.me/593991234567?text=Hola%20ClimaCold,%20deseo%20cotizar%20el%20producto:%20${encodeURIComponent(item.title)}`} target="_blank" class="btn-primary">
+                  Cotizar por WhatsApp
+                </a>
+                <a href="/contacto" class="btn-secondary">
+                  Solicitar Información
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    padding: 5rem 0 3rem 0;
+    background: linear-gradient(135deg, #1E537F 0%, #286ea8 100%);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .text-center { text-align: center; }
+
+  .page-title {
+    font-size: clamp(2.4rem, 4vw, 3.2rem);
+    font-weight: 800;
+    color: #fff;
+    margin: 0.5rem 0;
+  }
+
+  .page-subtitle {
+    font-size: 1.15rem;
+    color: #dbeafe;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  .products-list-section {
+    padding: 5rem 0;
+  }
+
+  .products-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .product-row {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2.5rem;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .product-row.reverse {
+    grid-template-columns: 1.2fr 1fr;
+  }
+
+  .product-row.reverse .product-img-box {
+    grid-column: 2;
+  }
+  .product-row.reverse .product-info-box {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .product-img-box {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    height: 340px;
+  }
+
+  .product-img-full {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .product-row:hover .product-img-full {
+    transform: scale(1.05);
+  }
+
+  .product-category-tag {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: #1E537F;
+    border: 1px solid var(--border-cyan);
+    color: #ffffff;
+    padding: 0.4rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  .product-info-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .product-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-main);
+  }
+
+  .product-desc {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .specs-block h4 {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #1E537F;
+    margin-bottom: 0.6rem;
+  }
+
+  .specs-block ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .specs-block li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.92rem;
+    color: #1e293b;
+    font-weight: 500;
+  }
+
+  .specs-block svg {
+    color: #1E537F;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .product-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 900px) {
+    .product-row,
+    .product-row.reverse {
+      grid-template-columns: 1fr;
+    }
+    .product-row.reverse .product-img-box { grid-column: 1; }
+    .product-row.reverse .product-info-box { grid-column: 1; grid-row: auto; }
+    .product-img-box { height: 250px; }
+  }
+</style>

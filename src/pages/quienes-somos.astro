@@ -1,0 +1,176 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import logoImg from '../assets/LOGO.jpeg';
+---
+
+<Layout title="¿Quiénes Somos? | ClimaCold - Otiemfri REFRIGERACIÓN" activePage="quienes-somos">
+  <section class="page-header">
+    <div class="container text-center">
+      <span class="badge">NUESTRA EMPRESA</span>
+      <h1 class="page-title">¿Quiénes Somos?</h1>
+      <p class="page-subtitle">
+        Líderes en ingeniería de refrigeración industrial y alquiler de cámaras de frío de alta eficiencia.
+      </p>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="container">
+      <div class="about-grid glass-card">
+        <div class="about-logo-box text-center">
+          <Image src={logoImg} alt="Otiemfri REFRIGERACIÓN Logo" class="about-logo-img" />
+          <h3 class="brand-name text-gradient">Otiemfri REFRIGERACIÓN</h3>
+          <p class="brand-sub">Empresa matriz de ClimaCold</p>
+        </div>
+
+        <div class="about-content-box">
+          <h2 class="about-heading">Compromiso Inquebrantable con la Cadena de Frío</h2>
+          <p>
+            En <strong>ClimaCold / Otiemfri REFRIGERACIÓN</strong> nos dedicamos a ofrecer soluciones integrales de almacenamiento frigorífico para la industria alimentaria, farmacéutica, agrícola y florícola.
+          </p>
+          <p>
+            Con años de experiencia en el mercado, entendemos que una falla en la cadena de frío representa pérdidas significativas. Por ello, todos nuestros cuartos fríos modulares e industriales están construidos con tecnología de aislamiento térmico de vanguardia y sistemas de monitoreo inteligente en tiempo real.
+          </p>
+
+          <div class="values-grid">
+            <div class="value-item">
+              <div class="value-icon">🎯</div>
+              <h4>Misión</h4>
+              <p>Garantizar la conservación de los productos de nuestros clientes mediante cuartos fríos de máxima fiabilidad y eficiencia energética.</p>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">🚀</div>
+              <h4>Visión</h4>
+              <p>Ser la empresa referente a nivel regional en el alquiler y mantenimiento de infraestructura de refrigeración sostenible y tecnológica.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    padding: 5rem 0 3rem 0;
+    background: linear-gradient(135deg, #1E537F 0%, #286ea8 100%);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .text-center { text-align: center; }
+
+  .page-title {
+    font-size: clamp(2.4rem, 4vw, 3.2rem);
+    font-weight: 800;
+    color: #fff;
+    margin: 0.5rem 0;
+  }
+
+  .page-subtitle {
+    font-size: 1.15rem;
+    color: #dbeafe;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  .about-section {
+    padding: 5rem 0;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .about-logo-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-cyan);
+    box-shadow: 0 10px 30px rgba(30, 83, 127, 0.08);
+  }
+
+  .about-logo-img {
+    max-width: 220px;
+    height: auto;
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
+  }
+
+  .brand-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+
+  .brand-sub {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .about-content-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .about-heading {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-main);
+  }
+
+  .about-content-box p {
+    font-size: 1.05rem;
+    color: #1e293b;
+    line-height: 1.7;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .value-item {
+    background: rgba(30, 83, 127, 0.05);
+    border: 1px solid var(--border-cyan);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .value-icon {
+    font-size: 2rem;
+  }
+
+  .value-item h4 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #1E537F;
+  }
+
+  .value-item p {
+    font-size: 0.92rem;
+    color: #334155;
+    font-weight: 500;
+  }
+
+  @media (max-width: 868px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+    .values-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

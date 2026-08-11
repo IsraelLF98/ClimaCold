@@ -1,0 +1,315 @@
+---
+---
+
+<section class="calculator-section">
+  <div class="container">
+    <div class="calc-header text-center">
+      <span class="badge">HERRAMIENTA INTERACTIVA</span>
+      <h2 class="section-title">Calculadora de Alquiler de Cuartos Fríos</h2>
+      <p class="section-subtitle">
+        Obtén una estimación instantánea para tu requerimiento de refrigeración o congelación.
+      </p>
+    </div>
+
+    <div class="glass-card calc-card">
+      <div class="calc-grid">
+        <!-- Formulario -->
+        <div class="calc-inputs">
+          <div class="input-group">
+            <label for="roomType">Tipo de Cuarto Frío</label>
+            <select id="roomType" class="calc-select">
+              <option value="congelacion">Cámara de Congelación (-18°C a -25°C)</option>
+              <option value="conservacion">Cámara de Conservación (0°C a 8°C)</option>
+              <option value="modular">Cuarto Frío Modular a Medida</option>
+              <option value="movil">Unidad Móvil sobre Contenedor</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <div class="label-with-val">
+              <label for="volumeRange">Volumen Almacenamiento (m³)</label>
+              <span id="volumeValue" class="calc-val-badge">30 m³</span>
+            </div>
+            <input type="range" id="volumeRange" min="10" max="300" step="5" value="30" class="calc-range" />
+            <div class="range-labels">
+              <span>10 m³</span>
+              <span>150 m³</span>
+              <span>300+ m³</span>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <div class="label-with-val">
+              <label for="daysRange">Tiempo de Alquiler (Días)</label>
+              <span id="daysValue" class="calc-val-badge">30 Días</span>
+            </div>
+            <input type="range" id="daysRange" min="1" max="180" step="1" value="30" class="calc-range" />
+            <div class="range-labels">
+              <span>1 Día</span>
+              <span>30 Días</span>
+              <span>180 Días</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resultado / Resumen -->
+        <div class="calc-summary-box">
+          <div class="summary-badge">ESTIMACIÓN ESTIMADA</div>
+          <div class="price-display">
+            <span class="currency">$</span>
+            <span id="totalPrice" class="amount">450</span>
+            <span class="period">/ total est.</span>
+          </div>
+
+          <ul class="summary-specs">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Instalación y soporte técnico 24/7 incluidos</span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Monitoreo telemático de temperatura</span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Aislamiento industrial de alta densidad</span>
+            </li>
+          </ul>
+
+          <a id="btnWhatsAppQuote" href="#" target="_blank" rel="noopener noreferrer" class="btn-primary btn-calc">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+            Solicitar esta Cotización
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .calculator-section {
+    padding: 5rem 0;
+    position: relative;
+  }
+
+  .calc-header {
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    color: var(--text-main);
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    text-align: center;
+  }
+
+  .calc-card {
+    max-width: 950px;
+    margin: 0 auto;
+  }
+
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .calc-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .input-group label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-main);
+  }
+
+  .label-with-val {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .calc-val-badge {
+    background: rgba(30, 83, 127, 0.12);
+    color: #1E537F;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .calc-select {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: #ffffff;
+    border: 1px solid var(--border-cyan);
+    border-radius: var(--radius-md);
+    color: var(--text-main);
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .calc-range {
+    width: 100%;
+    accent-color: var(--color-primary);
+    cursor: pointer;
+  }
+
+  .range-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  /* Summary Box */
+  .calc-summary-box {
+    background: linear-gradient(145deg, #1E537F 0%, #286ea8 100%);
+    border: 1px solid #1E537F;
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(30, 83, 127, 0.25);
+  }
+
+  .summary-badge {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #88B3D3;
+  }
+
+  .price-display {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.2rem;
+  }
+
+  .currency {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #88B3D3;
+  }
+
+  .amount {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+  }
+
+  .period {
+    font-size: 0.9rem;
+    color: #dbeafe;
+  }
+
+  .summary-specs {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: left;
+    font-size: 0.92rem;
+    color: #f0f6fa;
+  }
+
+  .summary-specs li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .summary-specs svg {
+    color: #88B3D3;
+    flex-shrink: 0;
+  }
+
+  .btn-calc {
+    width: 100%;
+    margin-top: 0.5rem;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: #ffffff;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+  }
+
+  .btn-calc:hover {
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+  }
+
+  @media (max-width: 768px) {
+    .calc-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>
+
+<script>
+  const roomTypeSelect = document.getElementById('roomType') as HTMLSelectElement;
+  const volumeRange = document.getElementById('volumeRange') as HTMLInputElement;
+  const daysRange = document.getElementById('daysRange') as HTMLInputElement;
+  const volumeValue = document.getElementById('volumeValue');
+  const daysValue = document.getElementById('daysValue');
+  const totalPrice = document.getElementById('totalPrice');
+  const btnWhatsApp = document.getElementById('btnWhatsAppQuote') as HTMLAnchorElement;
+
+  function calculate() {
+    if (!roomTypeSelect || !volumeRange || !daysRange || !totalPrice || !btnWhatsApp) return;
+
+    const vol = parseInt(volumeRange.value);
+    const days = parseInt(daysRange.value);
+    const type = roomTypeSelect.value;
+
+    if (volumeValue) volumeValue.textContent = `${vol} m³`;
+    if (daysValue) daysValue.textContent = `${days} Días`;
+
+    // Base rate calculation
+    let baseRatePerM3Day = 0.5;
+    if (type === 'congelacion') baseRatePerM3Day = 0.65;
+    if (type === 'modular') baseRatePerM3Day = 0.55;
+    if (type === 'movil') baseRatePerM3Day = 0.75;
+
+    let total = Math.round(vol * days * baseRatePerM3Day);
+
+    // Apply bulk discount for > 30 days
+    if (days >= 30) total = Math.round(total * 0.85);
+
+    totalPrice.textContent = total.toLocaleString();
+
+    const selectedOptionText = roomTypeSelect.options[roomTypeSelect.selectedIndex].text;
+    const msg = `Hola ClimaCold, deseo cotizar el alquiler de un cuarto frío:%0A- *Tipo:* ${selectedOptionText}%0A- *Volumen:* ${vol} m³%0A- *Duración:* ${days} días%0A- *Estimado:* $${total} USD`;
+    btnWhatsApp.href = `https://wa.me/593991234567?text=${msg}`;
+  }
+
+  if (roomTypeSelect && volumeRange && daysRange) {
+    roomTypeSelect.addEventListener('change', calculate);
+    volumeRange.addEventListener('input', calculate);
+    daysRange.addEventListener('input', calculate);
+    calculate();
+  }
+</script>
