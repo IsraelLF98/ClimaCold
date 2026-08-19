@@ -1,15 +1,17 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import HeroCarousel from '../components/HeroCarousel.astro';
-import QuoteCalculator from '../components/QuoteCalculator.astro';
-import { Image } from 'astro:assets';
-import imgProduct1 from '../assets/cold_room_1.png';
-import imgProduct2 from '../assets/cold_room_2.png';
-import imgProduct3 from '../assets/cold_room_3.png';
+import Layout from "../layouts/Layout.astro";
+import HeroCarousel from "../components/HeroCarousel.astro";
+import QuoteCalculator from "../components/QuoteCalculator.astro";
+import { Image } from "astro:assets";
+import imgProduct1 from "../assets/cold_room_1.png";
+import imgProduct2 from "../assets/cold_room_2.png";
+import imgProduct3 from "../assets/cold_room_3.png";
 ---
 
-<Layout title="ClimaCold | Venta de Cuartos Fríos y Refrigeración Industrial" activePage="inicio">
-  
+<Layout
+  title="ClimaCold | Venta de Cuartos Fríos y Refrigeración Industrial"
+  activePage="inicio"
+>
   <!-- Carrusel Principal de Imágenes -->
   <HeroCarousel />
 
@@ -42,7 +44,8 @@ import imgProduct3 from '../assets/cold_room_3.png';
         <span class="badge">NUESTROS PRODUCTOS</span>
         <h2 class="section-title">Soluciones de Refrigeración a tu Medida</h2>
         <p class="section-subtitle">
-          Vendemos equipamiento frigorífico de última generación con instalación, garantía y mantenimiento preventivo incluidos.
+          Vendemos equipamiento frigorífico de última generación con
+          instalación, garantía y mantenimiento preventivo incluidos.
         </p>
       </div>
 
@@ -50,12 +53,22 @@ import imgProduct3 from '../assets/cold_room_3.png';
         <!-- Card 1 -->
         <div class="glass-card product-card">
           <div class="card-img-wrapper">
-            <Image src={imgProduct1} alt="Cámaras de Congelación Industrial" class="card-img" format="webp" quality={80} sizes="(min-width: 1024px) 400px, 100vw" />
+            <Image
+              src={imgProduct1}
+              alt="Cámaras de Congelación Industrial"
+              class="card-img"
+              format="webp"
+              quality={80}
+              sizes="(min-width: 1024px) 400px, 100vw"
+            />
             <span class="card-tag">Congelación Rápida</span>
           </div>
           <div class="card-content">
             <h3>Cámaras de Congelación (-18°C a -25°C)</h3>
-            <p>Ideales para conservación de carnes, mariscos, helados y productos biológicos que exigen temperaturas bajo cero continuas.</p>
+            <p>
+              Ideales para conservación de carnes, mariscos, helados y productos
+              biológicos que exigen temperaturas bajo cero continuas.
+            </p>
             <div class="card-specs">
               <span><strong>Aislamiento:</strong> Poliuretano 120mm</span>
               <span><strong>Control:</strong> Digital IoT</span>
@@ -67,12 +80,22 @@ import imgProduct3 from '../assets/cold_room_3.png';
         <!-- Card 2 -->
         <div class="glass-card product-card">
           <div class="card-img-wrapper">
-            <Image src={imgProduct2} alt="Cuartos Fríos Modulares" class="card-img" format="webp" quality={80} sizes="(min-width: 1024px) 400px, 100vw" />
+            <Image
+              src={imgProduct2}
+              alt="Cuartos Fríos Modulares"
+              class="card-img"
+              format="webp"
+              quality={80}
+              sizes="(min-width: 1024px) 400px, 100vw"
+            />
             <span class="card-tag">Conservación</span>
           </div>
           <div class="card-content">
             <h3>Cuartos Fríos Modulares (0°C a +8°C)</h3>
-            <p>Diseñados para frutas, verduras, lácteos y flores. Ensamblaje rápido en instalaciones del cliente con paneles desmontables.</p>
+            <p>
+              Diseñados para frutas, verduras, lácteos y flores. Ensamblaje
+              rápido en instalaciones del cliente con paneles desmontables.
+            </p>
             <div class="card-specs">
               <span><strong>Aislamiento:</strong> Poliuretano 80mm</span>
               <span><strong>Luz:</strong> LED Anti-humedad</span>
@@ -84,12 +107,22 @@ import imgProduct3 from '../assets/cold_room_3.png';
         <!-- Card 3 -->
         <div class="glass-card product-card">
           <div class="card-img-wrapper">
-            <Image src={imgProduct3} alt="Unidades Móviles Refrigeradas" class="card-img" format="webp" quality={80} sizes="(min-width: 1024px) 400px, 100vw" />
+            <Image
+              src={imgProduct3}
+              alt="Unidades Móviles Refrigeradas"
+              class="card-img"
+              format="webp"
+              quality={80}
+              sizes="(min-width: 1024px) 400px, 100vw"
+            />
             <span class="card-tag">Portátil / Móvil</span>
           </div>
           <div class="card-content">
             <h3>Unidades Frigoríficas Móviles</h3>
-            <p>Contenedores y remolques equipados con sistemas frigoríficos autónomos para eventos, emergencias y transporte logístico.</p>
+            <p>
+              Contenedores y remolques equipados con sistemas frigoríficos
+              autónomos para eventos, emergencias y transporte logístico.
+            </p>
             <div class="card-specs">
               <span><strong>Conexión:</strong> Trifásica / Gen. diésel</span>
               <span><strong>Movilidad:</strong> Remolque listo</span>
@@ -109,32 +142,78 @@ import imgProduct3 from '../assets/cold_room_3.png';
     <div class="container">
       <div class="section-header text-center">
         <span class="badge">¿POR QUÉ ELEGIR CLIMACOLD?</span>
-        <h2 class="section-title">Respaldo Técnico Garantizado por ClimaCold</h2>
+        <h2 class="section-title">Respaldo Técnico Garantizado</h2>
       </div>
 
       <div class="features-grid">
         <div class="glass-card feature-card">
           <div class="feature-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+              ></path></svg
+            >
           </div>
           <h3>Monitoreo 24/7 en Tiempo Real</h3>
-          <p>Sensores telemáticos que envían alertas a tu celular en caso de fluctuación de temperatura o aperturas prolongadas.</p>
+          <p>
+            Sensores telemáticos que envían alertas a tu celular en caso de
+            fluctuación de temperatura o aperturas prolongadas.
+          </p>
         </div>
 
         <div class="glass-card feature-card">
           <div class="feature-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
+              ></polygon></svg
+            >
           </div>
           <h3>Eficiencia Energética A+</h3>
-          <p>Compresores eco-amigables inverter de bajo consumo eléctrico que reducen tus costos operativos de energía.</p>
+          <p>
+            Compresores eco-amigables inverter de bajo consumo eléctrico que
+            reducen tus costos operativos de energía.
+          </p>
         </div>
 
         <div class="glass-card feature-card">
           <div class="feature-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path
+                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+              ></path></svg
+            >
           </div>
           <h3>Mantenimiento Preventivo Gratis</h3>
-          <p>Equipo técnico especializado realiza inspecciones periódicas y reemplazo preventivo de componentes sin costo extra.</p>
+          <p>
+            Equipo técnico especializado realiza inspecciones periódicas y
+            reemplazo preventivo de componentes sin costo extra.
+          </p>
         </div>
       </div>
     </div>
@@ -147,7 +226,8 @@ import imgProduct3 from '../assets/cold_room_3.png';
         <div class="cta-content">
           <h2 class="cta-title">¿Necesitas un cuarto frío de urgencia?</h2>
           <p class="cta-desc">
-            Instalamos y entregamos tu solución frigorífica en menos de 24 horas. Asesoría técnica sin compromiso.
+            Instalamos y entregamos tu solución frigorífica en menos de 24
+            horas. Asesoría técnica sin compromiso.
           </p>
         </div>
         <div class="cta-actions">
@@ -252,7 +332,7 @@ import imgProduct3 from '../assets/cold_room_3.png';
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: #1E537F;
+    background: #1e537f;
     border: 1px solid var(--border-cyan);
     color: #ffffff;
     padding: 0.35rem 0.85rem;
@@ -287,7 +367,7 @@ import imgProduct3 from '../assets/cold_room_3.png';
     flex-direction: column;
     gap: 0.3rem;
     font-size: 0.85rem;
-    color: #1E537F;
+    color: #1e537f;
     background: rgba(30, 83, 127, 0.05);
     padding: 0.75rem;
     border-radius: var(--radius-sm);
@@ -302,7 +382,11 @@ import imgProduct3 from '../assets/cold_room_3.png';
   /* Features */
   .features-section {
     padding: 5rem 0;
-    background: linear-gradient(180deg, transparent 0%, rgba(136, 179, 211, 0.15) 100%);
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(136, 179, 211, 0.15) 100%
+    );
   }
 
   .features-grid {
@@ -351,8 +435,8 @@ import imgProduct3 from '../assets/cold_room_3.png';
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
-    background: linear-gradient(135deg, #1E537F 0%, #296fa9 100%);
-    border: 1px solid #1E537F;
+    background: linear-gradient(135deg, #1e537f 0%, #296fa9 100%);
+    border: 1px solid #1e537f;
     padding: 3rem;
     color: #ffffff;
   }
@@ -375,11 +459,11 @@ import imgProduct3 from '../assets/cold_room_3.png';
     font-size: 1.1rem;
     white-space: nowrap;
     background: #ffffff;
-    color: #1E537F;
+    color: #1e537f;
   }
 
   .btn-large:hover {
-    background: #88B3D3;
+    background: #88b3d3;
     color: #ffffff;
   }
 
