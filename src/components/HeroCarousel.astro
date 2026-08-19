@@ -8,11 +8,11 @@ const slides = [
   {
     image: slide1,
     badge: 'TECNOLOGÍA DE VANGUARDIA',
-    title: 'Alquiler de Cuartos Fríos Industriales',
+    title: 'Venta de Cuartos Fríos Industriales',
     description: 'Control de temperatura de alta precisión (-25°C a +8°C) para la industria alimentaria, farmacéutica y florícola.',
     ctaPrimary: 'Ver Productos',
     ctaPrimaryLink: '/productos',
-    ctaSecondary: 'Cotizar Alquiler',
+    ctaSecondary: 'Cotizar Precio',
     ctaSecondaryLink: '/contacto'
   },
   {
@@ -43,7 +43,7 @@ const slides = [
     {slides.map((slide, index) => (
       <div class={`carousel-slide ${index === 0 ? 'active' : ''}`} data-index={index}>
         <div class="slide-bg-overlay"></div>
-        <Image src={slide.image} alt={slide.title} class="slide-img" loading={index === 0 ? "eager" : "lazy"} />
+        <Image src={slide.image} alt={slide.title} class="slide-img" loading={index === 0 ? "eager" : "lazy"} format="webp" quality={80} sizes="100vw" fetchpriority={index === 0 ? "high" : "auto"} />
         <div class="container slide-content-wrapper">
           <div class="slide-content">
             <span class="badge slide-badge">{slide.badge}</span>

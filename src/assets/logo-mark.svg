@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="ClimaCold">
+  <defs>
+    <linearGradient id="ccIce" x1="10" y1="6" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#EFF7FC"/>
+      <stop offset="0.55" stop-color="#D3E6F4"/>
+      <stop offset="1" stop-color="#B9D5EC"/>
+    </linearGradient>
+  </defs>
+  <rect x="2.5" y="2.5" width="59" height="59" rx="15" fill="url(#ccIce)" stroke="#8FB8DB" stroke-width="1.6"/>
+  <circle cx="32" cy="32" r="24.5" stroke="#8FB8DB" stroke-width="1.4" opacity="0.55"/>
+  <g transform="rotate(26 32 32)">
+    <circle cx="32" cy="32" r="17.5" pathLength="360" stroke="#1E537F" stroke-width="6.2" stroke-linecap="round" stroke-dasharray="46 14"/>
+  </g>
+  <circle cx="32" cy="32" r="2.7" fill="#1E537F"/>
+  <circle cx="46.8" cy="14.2" r="1.5" fill="#7FB0D5" opacity="0.8"/>
+  <circle cx="17.6" cy="19.4" r="1.1" fill="#7FB0D5" opacity="0.6"/>
+  <circle cx="48.2" cy="45.6" r="1.2" fill="#7FB0D5" opacity="0.7"/>
+</svg>

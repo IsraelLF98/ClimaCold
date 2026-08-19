@@ -45,13 +45,13 @@ const products = [
 ];
 ---
 
-<Layout title="Productos | ClimaCold - Alquiler de Cuartos Fríos" activePage="productos">
+<Layout title="Productos | ClimaCold - Venta de Cuartos Fríos" activePage="productos">
   <section class="page-header">
     <div class="container text-center">
       <span class="badge" style="color:#fff;">CATÁLOGO COMPLETO</span>
       <h1 class="page-title">Nuestra Gama de Cuartos Fríos</h1>
       <p class="page-subtitle">
-        Equipamiento frigorífico industrial y comercial disponible para alquiler diario, mensual o anual.
+        Equipamiento frigorífico industrial y comercial disponible para venta, con instalación llave en mano, garantía y soporte técnico.
       </p>
     </div>
   </section>
@@ -62,7 +62,7 @@ const products = [
         {products.map((item, index) => (
           <div class={`product-row glass-card ${index % 2 === 1 ? 'reverse' : ''}`}>
             <div class="product-img-box">
-              <Image src={item.image} alt={item.title} class="product-img-full" />
+              <Image src={item.image} alt={item.title} class="product-img-full" format="webp" quality={80} sizes="(min-width: 1024px) 560px, 100vw" />
               <span class="product-category-tag">{item.category}</span>
             </div>
             <div class="product-info-box">

@@ -3,6 +3,7 @@ import TopBar from '../components/TopBar.astro';
 import Navbar from '../components/Navbar.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import Footer from '../components/Footer.astro';
+import SplashScreen from '../components/SplashScreen.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -12,10 +13,40 @@ interface Props {
 }
 
 const {
-  title = 'ClimaCold | Alquiler de Cuartos Fríos Industriales y Móviles',
-  description = 'Empresa especializada en el alquiler de cuartos fríos, cámaras de congelación y conservación para alimentos, farmacéutica y flores.',
+  title = 'ClimaCold | Venta de Cuartos Fríos Industriales y Móviles',
+  description = 'Empresa especializada en la venta de cuartos fríos, cámaras de congelación y conservación para alimentos, farmacéutica y flores.',
   activePage = 'inicio',
 } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const ogImageUrl = new URL('/og-image.png', Astro.site);
+const logoUrl = new URL('/favicon.svg', Astro.site);
+
+const localBusinessJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': canonicalUrl.toString(),
+  name: 'ClimaCold Refrigeración',
+  description,
+  url: canonicalUrl.toString(),
+  telephone: '+593991234567',
+  email: 'contacto@climacold.com',
+  image: [logoUrl.toString()],
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Av. Industrial Frigorífica #450, Parque Logístico del Norte',
+    addressCountry: 'EC',
+  },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens: '00:00',
+    closes: '23:59',
+  },
+  areaServed: ['Ecuador', 'Perú'],
+  sameAs: [],
+};
 ---
 
 <!doctype html>
@@ -24,19 +55,41 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" type="image/png" href="/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     
     <!-- SEO Meta Tags -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="alquiler cuartos frios, camaras frigorificas, cuartos congelacion, refrigeracion industrial, Otiemfri Refrigeracion, ClimaCold" />
+    <meta name="keywords" content="venta cuartos frios, camaras frigorificas, cuartos congelacion, refrigeracion industrial, ClimaCold" />
+    <link rel="canonical" href={canonicalUrl.toString()} />
     
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl.toString()} />
+    <meta property="og:image" content={ogImageUrl.toString()} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="ClimaCold" />
+    <meta property="og:locale" content="es_EC" />
+    <meta property="og:locale:alternate" content="es_PE" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl.toString()} />
+
+    <!-- Datos estructurados LocalBusiness -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessJsonLd)}></script>
   </head>
   <body>
+    <!-- Splash Screen en todas las páginas -->
+    <SplashScreen />
+
     <!-- TopBar por encima del Header -->
     <TopBar />
 

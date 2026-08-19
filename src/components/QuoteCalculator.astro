@@ -5,9 +5,9 @@
   <div class="container">
     <div class="calc-header text-center">
       <span class="badge">HERRAMIENTA INTERACTIVA</span>
-      <h2 class="section-title">Calculadora de Alquiler de Cuartos Fríos</h2>
+      <h2 class="section-title">Calculadora de Precio de Cuartos Fríos</h2>
       <p class="section-subtitle">
-        Obtén una estimación instantánea para tu requerimiento de refrigeración o congelación.
+        Obtén una estimación instantánea del precio de tu cámara de refrigeración o congelación.
       </p>
     </div>
 
@@ -37,28 +37,14 @@
               <span>300+ m³</span>
             </div>
           </div>
-
-          <div class="input-group">
-            <div class="label-with-val">
-              <label for="daysRange">Tiempo de Alquiler (Días)</label>
-              <span id="daysValue" class="calc-val-badge">30 Días</span>
-            </div>
-            <input type="range" id="daysRange" min="1" max="180" step="1" value="30" class="calc-range" />
-            <div class="range-labels">
-              <span>1 Día</span>
-              <span>30 Días</span>
-              <span>180 Días</span>
-            </div>
-          </div>
         </div>
 
         <!-- Resultado / Resumen -->
         <div class="calc-summary-box">
-          <div class="summary-badge">ESTIMACIÓN ESTIMADA</div>
+          <div class="summary-badge">PRECIO ESTIMADO</div>
           <div class="price-display">
             <span class="currency">$</span>
-            <span id="totalPrice" class="amount">450</span>
-            <span class="period">/ total est.</span>
+            <span id="totalPrice" class="amount">10,500</span>
           </div>
 
           <ul class="summary-specs">
@@ -73,6 +59,10 @@
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span>Aislamiento industrial de alta densidad</span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Garantía integral de fábrica</span>
             </li>
           </ul>
 
@@ -223,11 +213,6 @@
     line-height: 1;
   }
 
-  .period {
-    font-size: 0.9rem;
-    color: #dbeafe;
-  }
-
   .summary-specs {
     list-style: none;
     display: flex;
@@ -272,44 +257,40 @@
 <script>
   const roomTypeSelect = document.getElementById('roomType') as HTMLSelectElement;
   const volumeRange = document.getElementById('volumeRange') as HTMLInputElement;
-  const daysRange = document.getElementById('daysRange') as HTMLInputElement;
   const volumeValue = document.getElementById('volumeValue');
-  const daysValue = document.getElementById('daysValue');
   const totalPrice = document.getElementById('totalPrice');
   const btnWhatsApp = document.getElementById('btnWhatsAppQuote') as HTMLAnchorElement;
 
+  const pricePerM3: Record<string, number> = {
+    congelacion: 450,
+    conservacion: 350,
+    modular: 380,
+    movil: 520,
+  };
+
   function calculate() {
-    if (!roomTypeSelect || !volumeRange || !daysRange || !totalPrice || !btnWhatsApp) return;
+    if (!roomTypeSelect || !volumeRange || !totalPrice || !btnWhatsApp) return;
 
     const vol = parseInt(volumeRange.value);
-    const days = parseInt(daysRange.value);
     const type = roomTypeSelect.value;
 
     if (volumeValue) volumeValue.textContent = `${vol} m³`;
-    if (daysValue) daysValue.textContent = `${days} Días`;
 
-    // Base rate calculation
-    let baseRatePerM3Day = 0.5;
-    if (type === 'congelacion') baseRatePerM3Day = 0.65;
-    if (type === 'modular') baseRatePerM3Day = 0.55;
-    if (type === 'movil') baseRatePerM3Day = 0.75;
+    let total = Math.round(vol * pricePerM3[type]);
 
-    let total = Math.round(vol * days * baseRatePerM3Day);
-
-    // Apply bulk discount for > 30 days
-    if (days >= 30) total = Math.round(total * 0.85);
+    if (vol >= 100) total = Math.round(total * 0.9);
+    if (vol >= 200) total = Math.round(total * 0.85);
 
     totalPrice.textContent = total.toLocaleString();
 
     const selectedOptionText = roomTypeSelect.options[roomTypeSelect.selectedIndex].text;
-    const msg = `Hola ClimaCold, deseo cotizar el alquiler de un cuarto frío:%0A- *Tipo:* ${selectedOptionText}%0A- *Volumen:* ${vol} m³%0A- *Duración:* ${days} días%0A- *Estimado:* $${total} USD`;
+    const msg = `Hola ClimaCold, deseo cotizar la compra de un cuarto frío:%0A- *Tipo:* ${selectedOptionText}%0A- *Volumen:* ${vol} m³%0A- *Precio estimado:* $${total} USD`;
     btnWhatsApp.href = `https://wa.me/593991234567?text=${msg}`;
   }
 
-  if (roomTypeSelect && volumeRange && daysRange) {
+  if (roomTypeSelect && volumeRange) {
     roomTypeSelect.addEventListener('change', calculate);
     volumeRange.addEventListener('input', calculate);
-    daysRange.addEventListener('input', calculate);
     calculate();
   }
 </script>

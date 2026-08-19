@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import logoImg from '../assets/LOGO.jpeg';
+import logoImg from '../assets/LOGO 2.png';
 
 interface Props {
   activePage?: 'inicio' | 'productos' | 'servicios' | 'quienes-somos' | 'contacto';
@@ -21,7 +21,7 @@ const navItems = [
   <div class="container navbar-container">
     <!-- Logo a la izquierda -->
     <a href="/" class="brand-logo" aria-label="ClimaCold Inicio">
-      <Image src={logoImg} alt="ClimaCold Otiemfri Refrigeración Logo" class="logo-img" />
+      <Image src={logoImg} alt="ClimaCold - Refrigeración Industrial" class="header-logo-img" loading="eager" />
     </a>
 
     <!-- Navegación escritorio y tablets grandes -->
@@ -41,7 +41,7 @@ const navItems = [
     </nav>
 
     <!-- Botón Menú Móvil / iPad portrait -->
-    <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Abrir menú de navegación">
+    <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobileMenu">
       <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
         <line x1="4" x2="20" y1="12" y2="12"></line>
         <line x1="4" x2="20" y1="6" y2="6"></line>
@@ -85,20 +85,39 @@ const navItems = [
   .brand-logo {
     display: flex;
     align-items: center;
-  }
-
-  .logo-img {
-    height: 72px;
-    width: auto;
-    object-fit: contain;
-    border-radius: var(--radius-sm);
     transition: var(--transition);
-    filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.2));
+    padding: 0;
   }
 
-  .logo-img:hover {
-    transform: scale(1.03);
-    filter: drop-shadow(0 4px 14px rgba(255, 255, 255, 0.4));
+  .brand-logo:hover {
+    transform: scale(1.04);
+  }
+
+  .header-logo-img {
+    height: 54px;
+    width: auto;
+    max-width: 260px;
+    object-fit: contain;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.45)) drop-shadow(0 3px 8px rgba(0, 0, 0, 0.4));
+    transition: var(--transition);
+    transform-origin: left center;
+    animation: logoFadeIn 0.7s ease-out 1s both;
+  }
+
+  .header-logo-img:hover {
+    filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.75)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+  }
+
+  @keyframes logoFadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
   .nav-links {
@@ -198,8 +217,9 @@ const navItems = [
     .navbar-container {
       height: 65px;
     }
-    .logo-img {
-      height: 60px;
+    .header-logo-img {
+      height: 44px;
+      max-width: 200px;
     }
     .nav-links {
       display: none;
@@ -220,16 +240,37 @@ const navItems = [
   const menu = document.getElementById('mobileMenu');
 
   if (btn && menu) {
+    const setOpen = (open: boolean) => {
+      menu.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+    };
+
     btn.addEventListener('click', () => {
-      menu.classList.toggle('open');
+      setOpen(!menu.classList.contains('open'));
     });
 
     // Cerrar al presionar en enlaces
     const links = menu.querySelectorAll('a');
     links.forEach(link => {
       link.addEventListener('click', () => {
-        menu.classList.remove('open');
+        setOpen(false);
       });
+    });
+
+    // Cerrar al hacer clic fuera del menú
+    document.addEventListener('click', (e) => {
+      const target = e.target as Node;
+      if (menu.classList.contains('open') && !btn.contains(target) && !menu.contains(target)) {
+        setOpen(false);
+      }
+    });
+
+    // Cerrar con tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        setOpen(false);
+      }
     });
   }
 </script>

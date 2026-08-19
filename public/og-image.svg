@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="ogBg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B1830"/>
+      <stop offset="0.55" stop-color="#1E537F"/>
+      <stop offset="1" stop-color="#2b70a8"/>
+    </linearGradient>
+    <radialGradient id="ogGlow" cx="0.18" cy="0.4" r="0.6" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#88B3D3" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#88B3D3" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ccIce" x1="10" y1="6" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#EFF7FC"/>
+      <stop offset="0.55" stop-color="#D3E6F4"/>
+      <stop offset="1" stop-color="#B9D5EC"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#ogBg)"/>
+  <rect width="1200" height="630" fill="url(#ogGlow)"/>
+  <g opacity="0.5">
+    <circle cx="1050" cy="110" r="2.5" fill="#88B3D3"/>
+    <circle cx="1120" cy="210" r="2" fill="#88B3D3"/>
+    <circle cx="990" cy="520" r="2.5" fill="#88B3D3"/>
+    <circle cx="1120" cy="430" r="2" fill="#88B3D3"/>
+    <circle cx="60" cy="560" r="2" fill="#88B3D3"/>
+    <circle cx="130" cy="520" r="1.8" fill="#88B3D3"/>
+  </g>
+  <g transform="translate(120 145) scale(5.3)">
+    <rect x="2.5" y="2.5" width="59" height="59" rx="15" fill="url(#ccIce)" stroke="#8FB8DB" stroke-width="1.6"/>
+    <circle cx="32" cy="32" r="24.5" stroke="#8FB8DB" stroke-width="1.4" opacity="0.55"/>
+    <g transform="rotate(26 32 32)">
+      <circle cx="32" cy="32" r="17.5" pathLength="360" stroke="#1E537F" stroke-width="6.2" stroke-linecap="round" stroke-dasharray="46 14"/>
+    </g>
+    <circle cx="32" cy="32" r="2.7" fill="#1E537F"/>
+    <circle cx="46.8" cy="14.2" r="1.5" fill="#7FB0D5" opacity="0.8"/>
+    <circle cx="17.6" cy="19.4" r="1.1" fill="#7FB0D5" opacity="0.6"/>
+    <circle cx="48.2" cy="45.6" r="1.2" fill="#7FB0D5" opacity="0.7"/>
+  </g>
+  <text x="520" y="305" font-family="Outfit, 'Segoe UI', Arial, sans-serif" font-size="88" font-weight="800" letter-spacing="10" fill="#FFFFFF">CLIMACOLD</text>
+  <text x="523" y="365" font-family="Outfit, 'Segoe UI', Arial, sans-serif" font-size="30" font-weight="600" letter-spacing="4" fill="#88B3D3">VENTA DE CUARTOS FRIOS INDUSTRIALES</text>
+  <rect x="523" y="400" width="420" height="3" rx="1.5" fill="#88B3D3" opacity="0.6"/>
+  <text x="523" y="455" font-family="Outfit, 'Segoe UI', Arial, sans-serif" font-size="24" font-weight="500" letter-spacing="3" fill="#BFD9EC">-25&deg;C A +8&deg;C &middot; MONITOREO 24/7 &middot; GARANTIA INCLUIDA</text>
+  <text x="523" y="505" font-family="Outfit, 'Segoe UI', Arial, sans-serif" font-size="22" font-weight="600" letter-spacing="3" fill="#FFFFFF">CLIMACOLD REFRIGERACION</text>
+</svg>
