@@ -4,25 +4,25 @@ import Layout from '../layouts/Layout.astro';
 const services = [
   {
     icon: 'M13 10V3L4 14h7v7l9-11h-7z',
-    title: 'Venta e Instalación de Cuartos Fríos Industriales',
+    title: 'Venta e instalación de cuartos fríos industriales',
     desc: 'Venta de cuartos fríos y cámaras frigoríficas con instalación llave en mano en tu planta. Nos adaptamos a los requerimientos de tu empresa.',
     features: ['Instalación llave en mano', 'Garantía extendida', 'Asesoría técnica especializada']
   },
   {
     icon: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z',
-    title: 'Mantenimiento Preventivo y Correctivo 24/7',
-    desc: 'Técnicos certificados realizan revisiones periódicas de gas refrigerante, compresores, ventiladores y sellos de puertas sin costo adicional.',
-    features: ['Atención a emergencias 24h', 'Repuestos originales incluidos', 'Técnicos certificados']
+    title: 'Mantenimiento preventivo y correctivo 24/7',
+    desc: 'Técnicos certificados realizan revisiones periódicas de gas refrigerante, compresores, ventiladores y sellos de puertas.',
+    features: ['Atención a emergencias 24 horas', 'Repuestos originales', 'Técnicos certificados']
   },
   {
     icon: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',
-    title: 'Monitoreo Telemático de Temperatura (IoT)',
-    desc: 'Sistema de telemetría remota que registra la temperatura cada minuto, enviando alertas automáticas a WhatsApp o Email en caso de anomalías.',
+    title: 'Monitoreo telemático de temperatura (IoT)',
+    desc: 'Sistema de telemetría remota que registra la temperatura cada minuto, enviando alertas automáticas a WhatsApp o correo electrónico en caso de anomalías.',
     features: ['Registro de datos continuo', 'Informes auditables de calidad', 'Alertas de puerta abierta']
   },
   {
     icon: 'M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6',
-    title: 'Asesoría y Proyectos Frigoríficos',
+    title: 'Asesoría y proyectos frigoríficos',
     desc: 'Diseñamos proyectos de refrigeración personalizados para optimizar el consumo de energía y maximizar el espacio útil de almacenamiento.',
     features: ['Cálculo de carga térmica', 'Optimización energética', 'Cumplimiento de normas sanitarias']
   }
@@ -33,7 +33,7 @@ const services = [
   <section class="page-header">
     <div class="container text-center">
       <span class="badge" style="color:#fff;">NUESTROS SERVICIOS</span>
-      <h1 class="page-title">Soluciones Frigoríficas Integrales</h1>
+      <h1 class="page-title">Soluciones frigoríficas integrales</h1>
       <p class="page-subtitle">
         Ofrecemos un servicio completo que va desde la venta e instalación hasta el mantenimiento y monitoreo continuo.
       </p>
@@ -60,7 +60,7 @@ const services = [
                 </li>
               ))}
             </ul>
-            <a href="/contacto" class="btn-secondary service-btn">Solicitar Servicio</a>
+            <a href="/contacto" class="btn-secondary service-btn">Solicitar servicio</a>
           </div>
         ))}
       </div>
@@ -91,9 +91,7 @@ const services = [
     margin: 0 auto;
   }
 
-  .services-grid-section {
-    padding: 5rem 0;
-  }
+  .services-grid-section { padding: 5rem 0; }
 
   .services-grid {
     display: grid;
@@ -101,11 +99,7 @@ const services = [
     gap: 2rem;
   }
 
-  .service-card {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
+  .service-card { display: flex; flex-direction: column; gap: 1.2rem; }
 
   .service-icon-box {
     width: 60px;
@@ -120,42 +114,12 @@ const services = [
     box-shadow: 0 0 15px var(--color-primary-glow);
   }
 
-  .service-card-title {
-    font-size: 1.35rem;
-    font-weight: 800;
-    color: #1E537F;
-  }
+  .service-card-title { font-size: 1.35rem; font-weight: 800; color: #1E537F; }
+  .service-card-desc { font-size: 0.95rem; color: #334155; line-height: 1.6; font-weight: 500; }
 
-  .service-card-desc {
-    font-size: 0.95rem;
-    color: #334155;
-    line-height: 1.6;
-    font-weight: 500;
-  }
+  .service-features { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-top: auto; }
+  .service-features li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.92rem; color: #1e293b; font-weight: 600; }
+  .service-features svg { color: #1E537F; }
 
-  .service-features {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: auto;
-  }
-
-  .service-features li {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-size: 0.92rem;
-    color: #1e293b;
-    font-weight: 600;
-  }
-
-  .service-features svg {
-    color: #1E537F;
-  }
-
-  .service-btn {
-    width: 100%;
-    margin-top: 0.5rem;
-  }
+  .service-btn { width: 100%; margin-top: 0.5rem; }
 </style>

@@ -1,238 +1,204 @@
----
+﻿---
 import Layout from "../layouts/Layout.astro";
 import HeroCarousel from "../components/HeroCarousel.astro";
 import QuoteCalculator from "../components/QuoteCalculator.astro";
 import { Image } from "astro:assets";
-import imgProduct1 from "../assets/cold_room_1.png";
-import imgProduct2 from "../assets/cold_room_2.png";
-import imgProduct3 from "../assets/cold_room_3.png";
+
+const proyectos = Object.values(
+  import.meta.glob("../assets/galeria/proyectos/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}", { eager: true, import: "default" })
+) as ImageMetadata[];
+const mantenimiento = Object.values(
+  import.meta.glob("../assets/galeria/mantenimiento/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}", { eager: true, import: "default" })
+) as ImageMetadata[];
+const transporte = Object.values(
+  import.meta.glob("../assets/galeria/transporte/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}", { eager: true, import: "default" })
+) as ImageMetadata[];
+
+const imgProduct1 = proyectos[3] || proyectos[0];
+const imgProduct2 = mantenimiento[0] || proyectos[4] || proyectos[1];
+const imgProduct3 = transporte[0] || proyectos[5] || proyectos[2];
+
+const galeria = [...proyectos.slice(0, 8), ...mantenimiento.slice(0, 4), ...transporte.slice(0, 4)].filter(Boolean);
+
+const videos = [
+  "/videos/proyectos/2026-01-05-094005573%20(1).mp4",
+  "/videos/proyectos/VID_20251223_102917.mp4",
+  "/videos/proyectos/VID_20251223_163628.mp4",
+  "/videos/proyectos/VID_20260326_163844757.mp4",
+  "/videos/proyectos/VID_20261007_160941724.mp4",
+];
 ---
 
 <Layout
   title="ClimaCold | Venta de Cuartos Fríos y Refrigeración Industrial"
   activePage="inicio"
 >
-  <!-- Carrusel Principal de Imágenes -->
   <HeroCarousel />
 
-  <!-- Barra de Estadísticas Claves -->
   <section class="stats-section">
     <div class="container stats-grid">
       <div class="stat-item">
         <div class="stat-number text-gradient">+250</div>
-        <div class="stat-label">Cuartos Fríos Vendidos e Instalados</div>
+        <div class="stat-label">Cuartos fríos vendidos e instalados</div>
       </div>
       <div class="stat-item">
         <div class="stat-number text-gradient">-25°C</div>
-        <div class="stat-label">Capacidad de Congelación</div>
+        <div class="stat-label">Capacidad de congelación</div>
       </div>
       <div class="stat-item">
         <div class="stat-number text-gradient">24/7</div>
-        <div class="stat-label">Monitoreo Telemático y Soporte</div>
+        <div class="stat-label">Monitoreo telemático y soporte</div>
       </div>
       <div class="stat-item">
         <div class="stat-number text-gradient">100%</div>
-        <div class="stat-label">Garantía en Cadena de Frío</div>
+        <div class="stat-label">Garantía en cadena de frío</div>
       </div>
     </div>
   </section>
 
-  <!-- Categorías de Cuartos Fríos Destacadas -->
   <section class="products-preview-section">
     <div class="container">
       <div class="section-header text-center">
         <span class="badge">NUESTROS PRODUCTOS</span>
-        <h2 class="section-title">Soluciones de Refrigeración a tu Medida</h2>
+        <h2 class="section-title">Soluciones de refrigeración a tu medida</h2>
         <p class="section-subtitle">
-          Vendemos equipamiento frigorífico de última generación con
-          instalación, garantía y mantenimiento preventivo incluidos.
+          Vendemos equipamiento frigorífico de última generación con instalación, garantía y mantenimiento preventivo incluidos.
         </p>
       </div>
 
       <div class="products-grid">
-        <!-- Card 1 -->
         <div class="glass-card product-card">
           <div class="card-img-wrapper">
-            <Image
-              src={imgProduct1}
-              alt="Cámaras de Congelación Industrial"
-              class="card-img"
-              format="webp"
-              quality={80}
-              sizes="(min-width: 1024px) 400px, 100vw"
-            />
-            <span class="card-tag">Congelación Rápida</span>
+            <Image src={imgProduct1} alt="Cámaras de congelación industrial" class="card-img" format="webp" quality={80} sizes="(min-width: 1024px) 400px, 100vw" />
+            <span class="card-tag">Congelación rápida</span>
           </div>
           <div class="card-content">
-            <h3>Cámaras de Congelación (-18°C a -25°C)</h3>
-            <p>
-              Ideales para conservación de carnes, mariscos, helados y productos
-              biológicos que exigen temperaturas bajo cero continuas.
-            </p>
+            <h3>Cámaras de congelación (-18°C a -25°C)</h3>
+            <p>Ideales para conservación de carnes, mariscos, helados y productos biológicos que exigen temperaturas bajo cero continuas.</p>
             <div class="card-specs">
-              <span><strong>Aislamiento:</strong> Poliuretano 120mm</span>
+              <span><strong>Aislamiento:</strong> Poliuretano 120 mm</span>
               <span><strong>Control:</strong> Digital IoT</span>
             </div>
-            <a href="/productos" class="btn-secondary card-btn">Saber Más</a>
+            <a href="/productos" class="btn-secondary card-btn">Saber más</a>
           </div>
         </div>
 
-        <!-- Card 2 -->
         <div class="glass-card product-card">
           <div class="card-img-wrapper">
-            <Image
-              src={imgProduct2}
-              alt="Cuartos Fríos Modulares"
-              class="card-img"
-              format="webp"
-              quality={80}
-              sizes="(min-width: 1024px) 400px, 100vw"
-            />
+            <Image src={imgProduct2} alt="Cuartos fríos modulares" class="card-img" format="webp" quality={80} sizes="(min-width: 1024px) 400px, 100vw" />
             <span class="card-tag">Conservación</span>
           </div>
           <div class="card-content">
-            <h3>Cuartos Fríos Modulares (0°C a +8°C)</h3>
-            <p>
-              Diseñados para frutas, verduras, lácteos y flores. Ensamblaje
-              rápido en instalaciones del cliente con paneles desmontables.
-            </p>
+            <h3>Cuartos fríos modulares (0°C a +8°C)</h3>
+            <p>Diseñados para frutas, verduras, lácteos y flores. Ensamblaje rápido en instalaciones del cliente con paneles desmontables.</p>
             <div class="card-specs">
-              <span><strong>Aislamiento:</strong> Poliuretano 80mm</span>
-              <span><strong>Luz:</strong> LED Anti-humedad</span>
+              <span><strong>Aislamiento:</strong> Poliuretano 80 mm</span>
+              <span><strong>Luz:</strong> LED antihumedad</span>
             </div>
-            <a href="/productos" class="btn-secondary card-btn">Saber Más</a>
+            <a href="/productos" class="btn-secondary card-btn">Saber más</a>
           </div>
         </div>
 
-        <!-- Card 3 -->
         <div class="glass-card product-card">
           <div class="card-img-wrapper">
-            <Image
-              src={imgProduct3}
-              alt="Unidades Móviles Refrigeradas"
-              class="card-img"
-              format="webp"
-              quality={80}
-              sizes="(min-width: 1024px) 400px, 100vw"
-            />
+            <Image src={imgProduct3} alt="Unidades móviles refrigeradas" class="card-img" format="webp" quality={80} sizes="(min-width: 1024px) 400px, 100vw" />
             <span class="card-tag">Portátil / Móvil</span>
           </div>
           <div class="card-content">
-            <h3>Unidades Frigoríficas Móviles</h3>
-            <p>
-              Contenedores y remolques equipados con sistemas frigoríficos
-              autónomos para eventos, emergencias y transporte logístico.
-            </p>
+            <h3>Unidades frigoríficas móviles</h3>
+            <p>Contenedores y remolques equipados con sistemas frigoríficos autónomos para eventos, emergencias y transporte logístico.</p>
             <div class="card-specs">
-              <span><strong>Conexión:</strong> Trifásica / Gen. diésel</span>
+              <span><strong>Conexión:</strong> Trifásica / Generador diésel</span>
               <span><strong>Movilidad:</strong> Remolque listo</span>
             </div>
-            <a href="/productos" class="btn-secondary card-btn">Saber Más</a>
+            <a href="/productos" class="btn-secondary card-btn">Saber más</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Calculadora Interactiva de Precio -->
   <QuoteCalculator />
 
-  <!-- Sección Ventajas Competitivas -->
   <section class="features-section">
     <div class="container">
       <div class="section-header text-center">
         <span class="badge">¿POR QUÉ ELEGIR CLIMACOLD?</span>
-        <h2 class="section-title">Respaldo Técnico Garantizado</h2>
+        <h2 class="section-title">Respaldo técnico garantizado</h2>
       </div>
 
       <div class="features-grid">
         <div class="glass-card feature-card">
           <div class="feature-icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
-              ></path></svg
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
           </div>
-          <h3>Monitoreo 24/7 en Tiempo Real</h3>
-          <p>
-            Sensores telemáticos que envían alertas a tu celular en caso de
-            fluctuación de temperatura o aperturas prolongadas.
-          </p>
+          <h3>Monitoreo 24/7 en tiempo real</h3>
+          <p>Sensores telemáticos que envían alertas a tu celular en caso de fluctuación de temperatura o aperturas prolongadas.</p>
         </div>
 
         <div class="glass-card feature-card">
           <div class="feature-icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
-              ></polygon></svg
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
           </div>
-          <h3>Eficiencia Energética A+</h3>
-          <p>
-            Compresores eco-amigables inverter de bajo consumo eléctrico que
-            reducen tus costos operativos de energía.
-          </p>
+          <h3>Eficiencia energética A+</h3>
+          <p>Compresores ecoamigables inverter de bajo consumo eléctrico que reducen tus costos operativos de energía.</p>
         </div>
 
         <div class="glass-card feature-card">
           <div class="feature-icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><path
-                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
-              ></path></svg
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
           </div>
-          <h3>Mantenimiento Preventivo Gratis</h3>
-          <p>
-            Equipo técnico especializado realiza inspecciones periódicas y
-            reemplazo preventivo de componentes sin costo extra.
-          </p>
+          <h3>Mantenimiento preventivo</h3>
+          <p>Equipo técnico especializado realiza inspecciones periódicas y reemplazo preventivo de componentes para garantizar continuidad.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Banner CTA Final -->
+  <section class="gallery-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge">GALERÍA</span>
+        <h2 class="section-title">Proyectos, mantenimiento y transporte</h2>
+        <p class="section-subtitle">Algunos de nuestros trabajos y equipos en campo.</p>
+      </div>
+      <div class="gallery-grid">
+        {galeria.map((img, i) => (
+          <div class="gallery-item glass-card">
+            <Image src={img} alt={`Trabajo ClimaCold ${i + 1}`} class="gallery-img" loading="lazy" format="webp" quality={75} widths={[320, 640]} sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" />
+          </div>
+        ))}
+      </div>
+
+      <div class="videos-block">
+        <h3 class="videos-title">Videos de nuestros proyectos</h3>
+        <div class="videos-grid">
+          {videos.map((src, i) => (
+            <div class="video-item glass-card">
+              <video controls preload="metadata" playsinline class="project-video">
+                <source src={src} type="video/mp4" />
+                Tu navegador no soporta la reproducción de video.
+              </video>
+              <p class="video-caption">Proyecto en ejecución {i + 1}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="cta-banner-section">
     <div class="container">
       <div class="cta-box glass-card">
         <div class="cta-content">
           <h2 class="cta-title">¿Necesitas un cuarto frío de urgencia?</h2>
           <p class="cta-desc">
-            Instalamos y entregamos tu solución frigorífica en menos de 24
-            horas. Asesoría técnica sin compromiso.
+            Instalamos y entregamos tu solución frigorífica en menos de 24 horas. Asesoría técnica sin compromiso.
           </p>
         </div>
         <div class="cta-actions">
           <a href="/contacto" class="btn-primary btn-large">
-            Solicitar Asesoría Inmediata
+            Solicitar asesoría inmediata
           </a>
         </div>
       </div>
@@ -241,7 +207,6 @@ import imgProduct3 from "../assets/cold_room_3.png";
 </Layout>
 
 <style>
-  /* Stats Section */
   .stats-section {
     padding: 3.5rem 0;
     background: #ffffff;
@@ -269,7 +234,6 @@ import imgProduct3 from "../assets/cold_room_3.png";
     font-weight: 600;
   }
 
-  /* Products Preview */
   .products-preview-section {
     padding: 6rem 0;
   }
@@ -379,7 +343,6 @@ import imgProduct3 from "../assets/cold_room_3.png";
     width: 100%;
   }
 
-  /* Features */
   .features-section {
     padding: 5rem 0;
     background: linear-gradient(
@@ -425,7 +388,72 @@ import imgProduct3 from "../assets/cold_room_3.png";
     color: var(--text-muted);
   }
 
-  /* CTA Banner */
+  .gallery-section {
+    padding: 5rem 0;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .gallery-item {
+    padding: 0;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+  }
+
+  .gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .gallery-item:hover .gallery-img {
+    transform: scale(1.06);
+  }
+
+  .videos-block {
+    margin-top: 3.5rem;
+  }
+
+  .videos-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-main);
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .video-item {
+    padding: 0.75rem;
+    overflow: hidden;
+  }
+
+  .project-video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-md);
+    background: #000;
+    display: block;
+  }
+
+  .video-caption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-align: center;
+    font-weight: 600;
+  }
+
   .cta-banner-section {
     padding: 4rem 0 6rem 0;
   }

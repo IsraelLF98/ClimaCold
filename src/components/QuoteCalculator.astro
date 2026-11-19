@@ -5,7 +5,7 @@
   <div class="container">
     <div class="calc-header text-center">
       <span class="badge">HERRAMIENTA INTERACTIVA</span>
-      <h2 class="section-title">Calculadora de Precio de Cuartos Fríos</h2>
+      <h2 class="section-title">Calculadora de precio de cuartos fríos</h2>
       <p class="section-subtitle">
         Obtén una estimación instantánea del precio de tu cámara de refrigeración o congelación.
       </p>
@@ -13,21 +13,20 @@
 
     <div class="glass-card calc-card">
       <div class="calc-grid">
-        <!-- Formulario -->
         <div class="calc-inputs">
           <div class="input-group">
-            <label for="roomType">Tipo de Cuarto Frío</label>
+            <label for="roomType">Tipo de cuarto frío</label>
             <select id="roomType" class="calc-select">
-              <option value="congelacion">Cámara de Congelación (-18°C a -25°C)</option>
-              <option value="conservacion">Cámara de Conservación (0°C a 8°C)</option>
-              <option value="modular">Cuarto Frío Modular a Medida</option>
-              <option value="movil">Unidad Móvil sobre Contenedor</option>
+              <option value="congelacion">Cámara de congelación (-18°C a -25°C)</option>
+              <option value="conservacion">Cámara de conservación (0°C a 8°C)</option>
+              <option value="modular">Cuarto frío modular a medida</option>
+              <option value="movil">Unidad móvil sobre contenedor</option>
             </select>
           </div>
 
           <div class="input-group">
             <div class="label-with-val">
-              <label for="volumeRange">Volumen Almacenamiento (m³)</label>
+              <label for="volumeRange">Volumen de almacenamiento (m³)</label>
               <span id="volumeValue" class="calc-val-badge">30 m³</span>
             </div>
             <input type="range" id="volumeRange" min="10" max="300" step="5" value="30" class="calc-range" />
@@ -39,7 +38,6 @@
           </div>
         </div>
 
-        <!-- Resultado / Resumen -->
         <div class="calc-summary-box">
           <div class="summary-badge">PRECIO ESTIMADO</div>
           <div class="price-display">
@@ -68,7 +66,7 @@
 
           <a id="btnWhatsAppQuote" href="#" target="_blank" rel="noopener noreferrer" class="btn-primary btn-calc">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-            Solicitar esta Cotización
+            Solicitar esta cotización
           </a>
         </div>
       </div>
@@ -77,181 +75,31 @@
 </section>
 
 <style>
-  .calculator-section {
-    padding: 5rem 0;
-    position: relative;
-  }
-
-  .calc-header {
-    margin-bottom: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.8rem;
-  }
-
-  .section-title {
-    font-size: clamp(2rem, 3.5vw, 2.8rem);
-    font-weight: 800;
-    color: var(--text-main);
-  }
-
-  .section-subtitle {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    max-width: 600px;
-    text-align: center;
-  }
-
-  .calc-card {
-    max-width: 950px;
-    margin: 0 auto;
-  }
-
-  .calc-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 2.5rem;
-    align-items: center;
-  }
-
-  .calc-inputs {
-    display: flex;
-    flex-direction: column;
-    gap: 1.75rem;
-  }
-
-  .input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-
-  .input-group label {
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: var(--text-main);
-  }
-
-  .label-with-val {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .calc-val-badge {
-    background: rgba(30, 83, 127, 0.12);
-    color: #1E537F;
-    padding: 0.2rem 0.6rem;
-    border-radius: var(--radius-sm);
-    font-weight: 700;
-    font-size: 0.9rem;
-  }
-
-  .calc-select {
-    width: 100%;
-    padding: 0.85rem 1rem;
-    background: #ffffff;
-    border: 1px solid var(--border-cyan);
-    border-radius: var(--radius-md);
-    color: var(--text-main);
-    font-size: 1rem;
-    outline: none;
-    cursor: pointer;
-  }
-
-  .calc-range {
-    width: 100%;
-    accent-color: var(--color-primary);
-    cursor: pointer;
-  }
-
-  .range-labels {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.8rem;
-    color: var(--text-muted);
-  }
-
-  /* Summary Box */
-  .calc-summary-box {
-    background: linear-gradient(145deg, #1E537F 0%, #286ea8 100%);
-    border: 1px solid #1E537F;
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(30, 83, 127, 0.25);
-  }
-
-  .summary-badge {
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-    color: #88B3D3;
-  }
-
-  .price-display {
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    gap: 0.2rem;
-  }
-
-  .currency {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: #88B3D3;
-  }
-
-  .amount {
-    font-size: 3.2rem;
-    font-weight: 800;
-    color: #ffffff;
-    line-height: 1;
-  }
-
-  .summary-specs {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    text-align: left;
-    font-size: 0.92rem;
-    color: #f0f6fa;
-  }
-
-  .summary-specs li {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-
-  .summary-specs svg {
-    color: #88B3D3;
-    flex-shrink: 0;
-  }
-
-  .btn-calc {
-    width: 100%;
-    margin-top: 0.5rem;
-    background: linear-gradient(135deg, #25d366, #128c7e);
-    color: #ffffff;
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
-  }
-
-  .btn-calc:hover {
-    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
-  }
-
-  @media (max-width: 768px) {
-    .calc-grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-  }
+  .calculator-section { padding: 5rem 0; position: relative; }
+  .calc-header { margin-bottom: 3rem; display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
+  .section-title { font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 800; color: var(--text-main); }
+  .section-subtitle { font-size: 1.1rem; color: var(--text-muted); max-width: 600px; text-align: center; }
+  .calc-card { max-width: 950px; margin: 0 auto; }
+  .calc-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2.5rem; align-items: center; }
+  .calc-inputs { display: flex; flex-direction: column; gap: 1.75rem; }
+  .input-group { display: flex; flex-direction: column; gap: 0.6rem; }
+  .input-group label { font-weight: 600; font-size: 0.95rem; color: var(--text-main); }
+  .label-with-val { display: flex; justify-content: space-between; align-items: center; }
+  .calc-val-badge { background: rgba(30, 83, 127, 0.12); color: #1E537F; padding: 0.2rem 0.6rem; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.9rem; }
+  .calc-select { width: 100%; padding: 0.85rem 1rem; background: #ffffff; border: 1px solid var(--border-cyan); border-radius: var(--radius-md); color: var(--text-main); font-size: 1rem; outline: none; cursor: pointer; }
+  .calc-range { width: 100%; accent-color: var(--color-primary); cursor: pointer; }
+  .range-labels { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); }
+  .calc-summary-box { background: linear-gradient(145deg, #1E537F 0%, #286ea8 100%); border: 1px solid #1E537F; border-radius: var(--radius-lg); padding: 2rem; display: flex; flex-direction: column; gap: 1.5rem; text-align: center; box-shadow: 0 10px 30px rgba(30, 83, 127, 0.25); }
+  .summary-badge { font-size: 0.78rem; font-weight: 800; letter-spacing: 1px; color: #88B3D3; }
+  .price-display { display: flex; align-items: baseline; justify-content: center; gap: 0.2rem; }
+  .currency { font-size: 1.6rem; font-weight: 800; color: #88B3D3; }
+  .amount { font-size: 3.2rem; font-weight: 800; color: #ffffff; line-height: 1; }
+  .summary-specs { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; text-align: left; font-size: 0.92rem; color: #f0f6fa; }
+  .summary-specs li { display: flex; align-items: center; gap: 0.6rem; }
+  .summary-specs svg { color: #88B3D3; flex-shrink: 0; }
+  .btn-calc { width: 100%; margin-top: 0.5rem; background: linear-gradient(135deg, #25d366, #128c7e); color: #ffffff; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35); }
+  .btn-calc:hover { box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5); }
+  @media (max-width: 768px) { .calc-grid { grid-template-columns: 1fr; gap: 2rem; } }
 </style>
 
 <script>

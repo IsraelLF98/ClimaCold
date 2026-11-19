@@ -6,7 +6,7 @@ import Layout from '../layouts/Layout.astro';
   <section class="page-header">
     <div class="container text-center">
       <span class="badge" style="color:#fff;">CONTACTO DIRECTO</span>
-      <h1 class="page-title">Ponte en Contacto con Nosotros</h1>
+      <h1 class="page-title">Ponte en contacto con nosotros</h1>
       <p class="page-subtitle">
         Estamos listos para atender tus requerimientos de refrigeración y cotizaciones personalizadas.
       </p>
@@ -16,9 +16,8 @@ import Layout from '../layouts/Layout.astro';
   <section class="contact-section">
     <div class="container">
       <div class="contact-grid">
-        <!-- Información de contacto -->
         <div class="glass-card contact-info-card">
-          <h2 class="card-heading">Información de Atención</h2>
+          <h2 class="card-heading">Información de atención</h2>
           <p class="info-lead">
             Contáctanos a través de cualquiera de nuestros canales habilitados 24/7.
           </p>
@@ -39,7 +38,7 @@ import Layout from '../layouts/Layout.astro';
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
               </div>
               <div class="info-text">
-                <strong>Correo Electrónico:</strong>
+                <strong>Correo electrónico:</strong>
                 <a href="mailto:contacto@climacold.com">contacto@climacold.com</a>
               </div>
             </div>
@@ -49,20 +48,19 @@ import Layout from '../layouts/Layout.astro';
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
               </div>
               <div class="info-text">
-                <strong>Dirección de Oficinas y Planta:</strong>
+                <strong>Dirección de oficinas y planta:</strong>
                 <span>Av. Industrial Frigorífica #450, Parque Logístico del Norte</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Formulario -->
         <div class="glass-card contact-form-card">
-          <h2 class="card-heading">Envíanos un Mensaje</h2>
+          <h2 class="card-heading">Envíanos un mensaje</h2>
           <form class="contact-form" id="contactForm">
             <div class="form-row">
               <div class="form-group">
-                <label for="name">Nombre Completo</label>
+                <label for="name">Nombre completo</label>
                 <input type="text" id="name" required placeholder="Ej. Carlos Mendoza" class="form-input" />
               </div>
               <div class="form-group">
@@ -73,7 +71,7 @@ import Layout from '../layouts/Layout.astro';
 
             <div class="form-row">
               <div class="form-group">
-                <label for="email">Correo Electrónico</label>
+                <label for="email">Correo electrónico</label>
                 <input type="email" id="email" required placeholder="carlos@empresa.com" class="form-input" />
               </div>
               <div class="form-group">
@@ -83,22 +81,22 @@ import Layout from '../layouts/Layout.astro';
             </div>
 
             <div class="form-group">
-              <label for="service">Servicio de Interés</label>
+              <label for="service">Servicio de interés</label>
               <select id="service" class="form-input">
-                <option value="congelacion">Venta Cámara de Congelación (-18°C a -25°C)</option>
-                <option value="conservacion">Venta Cámara de Conservación (0°C a +8°C)</option>
-                <option value="movil">Unidad Móvil Frigorífica</option>
-                <option value="mantenimiento">Servicio de Mantenimiento</option>
+                <option value="congelacion">Venta de cámara de congelación (-18°C a -25°C)</option>
+                <option value="conservacion">Venta de cámara de conservación (0°C a +8°C)</option>
+                <option value="movil">Unidad móvil frigorífica</option>
+                <option value="mantenimiento">Servicio de mantenimiento</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label for="message">Detalles del Requerimiento</label>
-              <textarea id="message" rows="4" required placeholder="Describa el producto a almacenar, tiempo estimado y volumen requerido..." class="form-input"></textarea>
+              <label for="message">Detalles del requerimiento</label>
+              <textarea id="message" rows="4" required placeholder="Describe el producto a almacenar, tiempo estimado y volumen requerido..." class="form-input"></textarea>
             </div>
 
             <button type="submit" class="btn-primary form-submit-btn">
-              Enviar Mensaje
+              Enviar mensaje
             </button>
             <div id="formStatus" class="form-status"></div>
           </form>
@@ -124,144 +122,45 @@ import Layout from '../layouts/Layout.astro';
     margin: 0.5rem 0;
   }
 
-  .page-subtitle {
-    font-size: 1.15rem;
-    color: #dbeafe;
-    max-width: 650px;
-    margin: 0 auto;
-  }
+  .page-subtitle { font-size: 1.15rem; color: #dbeafe; max-width: 650px; margin: 0 auto; }
+  .contact-section { padding: 5rem 0; }
+  .contact-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 2.5rem; }
 
-  .contact-section {
-    padding: 5rem 0;
-  }
+  .card-heading { font-size: 1.6rem; font-weight: 800; color: var(--text-main); margin-bottom: 1rem; }
+  .info-lead { font-size: 1rem; color: var(--text-muted); margin-bottom: 2rem; }
 
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 2.5rem;
-  }
-
-  .card-heading {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: var(--text-main);
-    margin-bottom: 1rem;
-  }
-
-  .info-lead {
-    font-size: 1rem;
-    color: var(--text-muted);
-    margin-bottom: 2rem;
-  }
-
-  .info-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.75rem;
-  }
-
-  .info-item {
-    display: flex;
-    gap: 1.25rem;
-    align-items: flex-start;
-  }
+  .info-list { display: flex; flex-direction: column; gap: 1.75rem; }
+  .info-item { display: flex; gap: 1.25rem; align-items: flex-start; }
 
   .info-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: var(--radius-md);
-    background: rgba(30, 83, 127, 0.1);
-    border: 1px solid var(--border-cyan);
-    color: var(--color-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+    width: 48px; height: 48px; border-radius: var(--radius-md);
+    background: rgba(30, 83, 127, 0.1); border: 1px solid var(--border-cyan);
+    color: var(--color-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   }
 
-  .info-text {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    font-size: 0.95rem;
-    color: var(--text-muted);
-  }
+  .info-text { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.95rem; color: var(--text-muted); }
+  .info-text strong { color: var(--text-main); }
+  .info-text a { color: var(--color-primary); }
+  .info-text a:hover { color: #286ea8; text-decoration: underline; }
 
-  .info-text strong {
-    color: var(--text-main);
-  }
-
-  .info-text a {
-    color: var(--color-primary);
-  }
-
-  .info-text a:hover {
-    color: #286ea8;
-    text-decoration: underline;
-  }
-
-  /* Formulario */
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.2rem;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .form-group label {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-main);
-  }
+  .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-size: 0.9rem; font-weight: 600; color: var(--text-main); }
 
   .form-input {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    background: #ffffff;
-    border: 1px solid var(--border-cyan);
-    border-radius: var(--radius-md);
-    color: var(--text-main);
-    font-family: inherit;
-    font-size: 0.95rem;
-    outline: none;
-    transition: var(--transition);
+    width: 100%; padding: 0.8rem 1rem; background: #ffffff;
+    border: 1px solid var(--border-cyan); border-radius: var(--radius-md);
+    color: var(--text-main); font-family: inherit; font-size: 0.95rem; outline: none; transition: var(--transition);
   }
 
-  .form-input:focus {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 15px var(--color-primary-glow);
-  }
-
-  .form-submit-btn {
-    width: 100%;
-    margin-top: 0.5rem;
-  }
-
-  .form-status {
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-align: center;
-    min-height: 24px;
-  }
+  .form-input:focus { border-color: var(--color-primary); box-shadow: 0 0 15px var(--color-primary-glow); }
+  .form-submit-btn { width: 100%; margin-top: 0.5rem; }
+  .form-status { font-size: 0.95rem; font-weight: 600; text-align: center; min-height: 24px; }
 
   @media (max-width: 868px) {
-    .contact-grid {
-      grid-template-columns: 1fr;
-    }
-    .form-row {
-      grid-template-columns: 1fr;
-    }
+    .contact-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
   }
 </style>
 
@@ -273,7 +172,7 @@ import Layout from '../layouts/Layout.astro';
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       if (status) {
-        status.style.color = '#00d2ff';
+        status.style.color = '#1E537F';
         status.textContent = '¡Gracias por tu mensaje! Un asesor de ClimaCold te contactará en breve.';
         form.reset();
       }

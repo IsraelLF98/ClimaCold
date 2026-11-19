@@ -59,13 +59,11 @@ const localBusinessJsonLd = {
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     
-    <!-- SEO Meta Tags -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="venta cuartos frios, camaras frigorificas, cuartos congelacion, refrigeracion industrial, ClimaCold" />
+    <meta name="keywords" content="venta cuartos fríos, cámaras frigoríficas, cuartos de congelación, refrigeración industrial, ClimaCold, Ecuador" />
     <link rel="canonical" href={canonicalUrl.toString()} />
     
-    <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
@@ -75,36 +73,22 @@ const localBusinessJsonLd = {
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="ClimaCold" />
     <meta property="og:locale" content="es_EC" />
-    <meta property="og:locale:alternate" content="es_PE" />
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl.toString()} />
 
-    <!-- Datos estructurados LocalBusiness -->
     <script type="application/ld+json" set:html={JSON.stringify(localBusinessJsonLd)}></script>
   </head>
   <body>
-    <!-- Splash Screen en todas las páginas -->
     <SplashScreen />
-
-    <!-- TopBar por encima del Header -->
     <TopBar />
-
-    <!-- Navbar Sticky -->
     <Navbar activePage={activePage} />
-
-    <!-- Main Content -->
     <main id="main-content">
       <slot />
     </main>
-
-    <!-- Botón flotante de WhatsApp en la esquina inferior derecha con CONTÁCTANOS -->
     <WhatsAppButton />
-
-    <!-- Footer de 3 columnas con copyright a la derecha -->
     <Footer />
   </body>
 </html>

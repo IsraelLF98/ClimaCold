@@ -1,15 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import imgProduct1 from '../assets/cold_room_1.png';
-import imgProduct2 from '../assets/cold_room_2.png';
-import imgProduct3 from '../assets/cold_room_3.png';
+
+const proyectos = Object.values(
+  import.meta.glob('../assets/galeria/proyectos/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' })
+) as ImageMetadata[];
+const transporte = Object.values(
+  import.meta.glob('../assets/galeria/transporte/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true, import: 'default' })
+) as ImageMetadata[];
 
 const products = [
   {
     title: 'Cámaras Frigoríficas de Congelación',
-    category: 'Congelación Rápida (-18°C a -25°C)',
-    image: imgProduct1,
+    category: 'Congelación rápida (-18°C a -25°C)',
+    image: proyectos[6] || proyectos[0],
     desc: 'Cuartos fríos diseñados para mantener productos a temperaturas bajo cero extremas con alta eficiencia térmica. Equipados con cortinas de lamas térmicas y desescarche automático inteligente.',
     specs: [
       'Paneles sándwich de poliuretano inyectado de 120 mm',
@@ -21,7 +25,7 @@ const products = [
   {
     title: 'Cuartos Fríos de Conservación',
     category: 'Refrigeración (0°C a +8°C)',
-    image: imgProduct2,
+    image: proyectos[7] || proyectos[1],
     desc: 'Solución ideal para el mantenimiento de la cadena de frío de frutas, verduras, lácteos, flores y medicinas. Mantiene la humedad relativa óptima para preservar el producto sin deshidratarlo.',
     specs: [
       'Paneles modulares de poliuretano de 80 mm',
@@ -32,16 +36,26 @@ const products = [
   },
   {
     title: 'Unidades Frigoríficas Móviles y Contenedores',
-    category: 'Transporte & Eventos (Móvil)',
-    image: imgProduct3,
+    category: 'Transporte y eventos (móvil)',
+    image: transporte[1] || transporte[0] || proyectos[2],
     desc: 'Unidades de refrigeración portátiles instaladas sobre remolques o contenedores aislados. Perfectas para expansión temporal de almacenamiento o logística de distribución fría.',
     specs: [
-      'Contenedores ISO insulated de 20 y 40 pies',
+      'Contenedores ISO aislados de 20 y 40 pies',
       'Generador diésel auxiliar o conexión trifásica 220V/440V',
       'Estructura de fácil traslado con montacargas o grúa',
-      'Sistema de amarre y seguridad anti-robo'
+      'Sistema de amarre y seguridad antirrobo'
     ]
   }
+];
+
+const galeriaProductos = [...proyectos.slice(0, 12), ...transporte.slice(0, 6)].filter(Boolean);
+
+const videos = [
+  "/videos/proyectos/2026-01-05-094005573%20(1).mp4",
+  "/videos/proyectos/VID_20251223_102917.mp4",
+  "/videos/proyectos/VID_20251223_163628.mp4",
+  "/videos/proyectos/VID_20260326_163844757.mp4",
+  "/videos/proyectos/VID_20261007_160941724.mp4",
 ];
 ---
 
@@ -49,7 +63,7 @@ const products = [
   <section class="page-header">
     <div class="container text-center">
       <span class="badge" style="color:#fff;">CATÁLOGO COMPLETO</span>
-      <h1 class="page-title">Nuestra Gama de Cuartos Fríos</h1>
+      <h1 class="page-title">Nuestra gama de cuartos fríos</h1>
       <p class="page-subtitle">
         Equipamiento frigorífico industrial y comercial disponible para venta, con instalación llave en mano, garantía y soporte técnico.
       </p>
@@ -70,7 +84,7 @@ const products = [
               <p class="product-desc">{item.desc}</p>
               
               <div class="specs-block">
-                <h4>Especificaciones Técnicas:</h4>
+                <h4>Especificaciones técnicas:</h4>
                 <ul>
                   {item.specs.map(spec => (
                     <li>
@@ -86,12 +100,45 @@ const products = [
                   Cotizar por WhatsApp
                 </a>
                 <a href="/contacto" class="btn-secondary">
-                  Solicitar Información
+                  Solicitar información
                 </a>
               </div>
             </div>
           </div>
         ))}
+      </div>
+
+      <div class="products-gallery">
+        <div class="section-header text-center">
+          <span class="badge">GALERÍA</span>
+          <h2 class="section-title">Equipos y proyectos realizados</h2>
+        </div>
+        <div class="gallery-grid">
+          {galeriaProductos.map((img, i) => (
+            <div class="gallery-item glass-card">
+              <Image src={img} alt={`Producto o proyecto ${i + 1}`} class="gallery-img" loading="lazy" format="webp" quality={75} widths={[320, 640]} sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="videos-block">
+        <div class="section-header text-center">
+          <span class="badge">VIDEOS</span>
+          <h2 class="section-title">Videos de nuestros proyectos</h2>
+          <p class="section-subtitle">Conoce nuestros trabajos y equipos en funcionamiento.</p>
+        </div>
+        <div class="videos-grid">
+          {videos.map((src, i) => (
+            <div class="video-item glass-card">
+              <video controls preload="metadata" playsinline class="project-video">
+                <source src={src} type="video/mp4" />
+                Tu navegador no soporta la reproducción de video.
+              </video>
+              <p class="video-caption">Proyecto en ejecución {i + 1}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -120,15 +167,8 @@ const products = [
     margin: 0 auto;
   }
 
-  .products-list-section {
-    padding: 5rem 0;
-  }
-
-  .products-list {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-  }
+  .products-list-section { padding: 5rem 0; }
+  .products-list { display: flex; flex-direction: column; gap: 3rem; }
 
   .product-row {
     display: grid;
@@ -138,17 +178,9 @@ const products = [
     padding: 2rem;
   }
 
-  .product-row.reverse {
-    grid-template-columns: 1.2fr 1fr;
-  }
-
-  .product-row.reverse .product-img-box {
-    grid-column: 2;
-  }
-  .product-row.reverse .product-info-box {
-    grid-column: 1;
-    grid-row: 1;
-  }
+  .product-row.reverse { grid-template-columns: 1.2fr 1fr; }
+  .product-row.reverse .product-img-box { grid-column: 2; }
+  .product-row.reverse .product-info-box { grid-column: 1; grid-row: 1; }
 
   .product-img-box {
     position: relative;
@@ -164,9 +196,7 @@ const products = [
     transition: transform 0.5s ease;
   }
 
-  .product-row:hover .product-img-full {
-    transform: scale(1.05);
-  }
+  .product-row:hover .product-img-full { transform: scale(1.05); }
 
   .product-category-tag {
     position: absolute;
@@ -181,65 +211,44 @@ const products = [
     font-weight: 700;
   }
 
-  .product-info-box {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
+  .product-info-box { display: flex; flex-direction: column; gap: 1.2rem; }
+  .product-title { font-size: 1.8rem; font-weight: 800; color: var(--text-main); }
+  .product-desc { font-size: 1rem; color: var(--text-muted); line-height: 1.6; }
 
-  .product-title {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--text-main);
-  }
+  .specs-block h4 { font-size: 0.95rem; font-weight: 800; color: #1E537F; margin-bottom: 0.6rem; }
+  .specs-block ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .specs-block li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.92rem; color: #1e293b; font-weight: 500; }
+  .specs-block svg { color: #1E537F; flex-shrink: 0; margin-top: 2px; }
 
-  .product-desc {
-    font-size: 1rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-  }
+  .product-actions { display: flex; gap: 1rem; margin-top: 0.5rem; flex-wrap: wrap; }
 
-  .specs-block h4 {
-    font-size: 0.95rem;
-    font-weight: 800;
-    color: #1E537F;
-    margin-bottom: 0.6rem;
-  }
+  .products-gallery { margin-top: 4rem; }
+  .section-header { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; margin-bottom: 2rem; }
+  .section-title { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; color: var(--text-main); }
+  .section-subtitle { font-size: 1.05rem; color: var(--text-muted); max-width: 620px; }
 
-  .specs-block ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .specs-block li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
-    font-size: 0.92rem;
-    color: #1e293b;
-    font-weight: 500;
-  }
-
-  .specs-block svg {
-    color: #1E537F;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .product-actions {
-    display: flex;
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 1rem;
-    margin-top: 0.5rem;
-    flex-wrap: wrap;
   }
+
+  .gallery-item { padding: 0; overflow: hidden; aspect-ratio: 4 / 3; }
+  .gallery-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+  .gallery-item:hover .gallery-img { transform: scale(1.06); }
+
+  .videos-block { margin-top: 4rem; }
+  .videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+  .video-item { padding: 0.75rem; overflow: hidden; }
+  .project-video { width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius-md); background: #000; display: block; }
+  .video-caption { margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted); text-align: center; font-weight: 600; }
 
   @media (max-width: 900px) {
-    .product-row,
-    .product-row.reverse {
-      grid-template-columns: 1fr;
-    }
+    .product-row, .product-row.reverse { grid-template-columns: 1fr; }
     .product-row.reverse .product-img-box { grid-column: 1; }
     .product-row.reverse .product-info-box { grid-column: 1; grid-row: auto; }
     .product-img-box { height: 250px; }

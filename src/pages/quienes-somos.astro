@@ -8,7 +8,7 @@ import logoImg from '../assets/LOGO 2.png';
   <section class="page-header">
     <div class="container text-center">
       <span class="badge" style="color:#fff;">NUESTRA EMPRESA</span>
-      <h1 class="page-title">¿Quiénes Somos?</h1>
+      <h1 class="page-title">¿Quiénes somos?</h1>
       <p class="page-subtitle">
         Líderes en ingeniería de refrigeración industrial y venta de cámaras de frío de alta eficiencia.
       </p>
@@ -19,13 +19,13 @@ import logoImg from '../assets/LOGO 2.png';
     <div class="container">
       <div class="about-grid glass-card">
         <div class="about-logo-box text-center">
-          <Image src={logoImg} alt="ClimaCold Logo" class="about-logo-img" />
-          <h3 class="brand-name text-gradient">ClimaCold REFRIGERACIÓN</h3>
+          <Image src={logoImg} alt="Logo ClimaCold" class="about-logo-img" />
+          <h3 class="brand-name text-gradient">ClimaCold Refrigeración</h3>
           <p class="brand-sub">Soluciones frigoríficas de alta calidad</p>
         </div>
 
         <div class="about-content-box">
-          <h2 class="about-heading">Compromiso Inquebrantable con la Cadena de Frío</h2>
+          <h2 class="about-heading">Compromiso inquebrantable con la cadena de frío</h2>
           <p>
             En <strong>ClimaCold</strong> nos dedicamos a la fabricación y venta de soluciones integrales de almacenamiento frigorífico para la industria alimentaria, farmacéutica, agrícola y florícola.
           </p>
@@ -40,7 +40,7 @@ import logoImg from '../assets/LOGO 2.png';
               <p>Garantizar la conservación de los productos de nuestros clientes mediante cuartos fríos de máxima fiabilidad y eficiencia energética.</p>
             </div>
             <div class="value-item">
-              <div class="value-icon">🚀</div>
+              <div class="value-icon">👁️</div>
               <h4>Visión</h4>
               <p>Ser la empresa referente a nivel regional en la venta y mantenimiento de infraestructura de refrigeración sostenible y tecnológica.</p>
             </div>
@@ -74,9 +74,7 @@ import logoImg from '../assets/LOGO 2.png';
     margin: 0 auto;
   }
 
-  .about-section {
-    padding: 5rem 0;
-  }
+  .about-section { padding: 5rem 0; }
 
   .about-grid {
     display: grid;
@@ -103,40 +101,14 @@ import logoImg from '../assets/LOGO 2.png';
     filter: drop-shadow(0 10px 25px rgba(30, 83, 127, 0.25));
   }
 
-  .brand-name {
-    font-size: 1.5rem;
-    font-weight: 800;
-  }
+  .brand-name { font-size: 1.5rem; font-weight: 800; }
+  .brand-sub { font-size: 0.9rem; color: var(--text-muted); }
 
-  .brand-sub {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-  }
+  .about-content-box { display: flex; flex-direction: column; gap: 1.5rem; }
+  .about-heading { font-size: 2rem; font-weight: 800; color: var(--text-main); }
+  .about-content-box p { font-size: 1.05rem; color: #1e293b; line-height: 1.7; }
 
-  .about-content-box {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .about-heading {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--text-main);
-  }
-
-  .about-content-box p {
-    font-size: 1.05rem;
-    color: #1e293b;
-    line-height: 1.7;
-  }
-
-  .values-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-top: 1rem;
-  }
+  .values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem; }
 
   .value-item {
     background: rgba(30, 83, 127, 0.05);
@@ -148,28 +120,12 @@ import logoImg from '../assets/LOGO 2.png';
     gap: 0.5rem;
   }
 
-  .value-icon {
-    font-size: 2rem;
-  }
-
-  .value-item h4 {
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: #1E537F;
-  }
-
-  .value-item p {
-    font-size: 0.92rem;
-    color: #334155;
-    font-weight: 500;
-  }
+  .value-icon { font-size: 2rem; }
+  .value-item h4 { font-size: 1.2rem; font-weight: 800; color: #1E537F; }
+  .value-item p { font-size: 0.92rem; color: #334155; font-weight: 500; }
 
   @media (max-width: 868px) {
-    .about-grid {
-      grid-template-columns: 1fr;
-    }
-    .values-grid {
-      grid-template-columns: 1fr;
-    }
+    .about-grid { grid-template-columns: 1fr; }
+    .values-grid { grid-template-columns: 1fr; }
   }
 </style>
