@@ -29,7 +29,17 @@ import Layout from '../layouts/Layout.astro';
               </div>
               <div class="info-text">
                 <strong>Teléfono / WhatsApp:</strong>
-                <a href="tel:+593991234567">+593 99 123 4567 / +51 987 654 321</a>
+                <a href="https://wa.me/593987755672?text=Hola%20ClimaCold,%20quisiera%20obtener%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n." target="_blank" rel="noopener noreferrer">+593 98 775 5672</a>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              </div>
+              <div class="info-text">
+                <strong>Facebook:</strong>
+                <a href="https://web.facebook.com/profile.php?id=100070965240932" target="_blank" rel="noopener noreferrer">Ver perfil en Facebook</a>
               </div>
             </div>
 
@@ -39,7 +49,7 @@ import Layout from '../layouts/Layout.astro';
               </div>
               <div class="info-text">
                 <strong>Correo electrónico:</strong>
-                <a href="mailto:contacto@climacold.com">contacto@climacold.com</a>
+                <a href="mailto:leninisrael15@gmail.com">leninisrael15@gmail.com</a>
               </div>
             </div>
 
@@ -49,7 +59,7 @@ import Layout from '../layouts/Layout.astro';
               </div>
               <div class="info-text">
                 <strong>Dirección de oficinas y planta:</strong>
-                <span>Av. Industrial Frigorífica #450, Parque Logístico del Norte</span>
+                <span>Panamericana E35 - Cayambe</span>
               </div>
             </div>
           </div>
@@ -57,32 +67,35 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="glass-card contact-form-card">
           <h2 class="card-heading">Envíanos un mensaje</h2>
-          <form class="contact-form" id="contactForm">
+          <form class="contact-form" id="contactForm" action="https://formsubmit.co/ajax/leninisrael15@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Nuevo requerimiento desde la web - ClimaCold" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
             <div class="form-row">
               <div class="form-group">
                 <label for="name">Nombre completo</label>
-                <input type="text" id="name" required placeholder="Ej. Carlos Mendoza" class="form-input" />
+                <input type="text" id="name" name="name" autocomplete="name" required placeholder="Ej. Carlos Mendoza" class="form-input" />
               </div>
               <div class="form-group">
                 <label for="company">Empresa</label>
-                <input type="text" id="company" placeholder="Ej. Alimentos del Norte S.A." class="form-input" />
+                <input type="text" id="company" name="company" autocomplete="organization" placeholder="Ej. Alimentos del Norte S.A." class="form-input" />
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label for="email">Correo electrónico</label>
-                <input type="email" id="email" required placeholder="carlos@empresa.com" class="form-input" />
+                <input type="email" id="email" name="email" autocomplete="email" required placeholder="carlos@empresa.com" class="form-input" />
               </div>
               <div class="form-group">
                 <label for="phone">Teléfono / Celular</label>
-                <input type="tel" id="phone" required placeholder="+593 99 999 9999" class="form-input" />
+                <input type="tel" id="phone" name="phone" autocomplete="tel" required placeholder="+593 98 775 5672" class="form-input" />
               </div>
             </div>
 
             <div class="form-group">
               <label for="service">Servicio de interés</label>
-              <select id="service" class="form-input">
+              <select id="service" name="service" class="form-input">
                 <option value="congelacion">Venta de cámara de congelación (-18°C a -25°C)</option>
                 <option value="conservacion">Venta de cámara de conservación (0°C a +8°C)</option>
                 <option value="movil">Unidad móvil frigorífica</option>
@@ -92,13 +105,13 @@ import Layout from '../layouts/Layout.astro';
 
             <div class="form-group">
               <label for="message">Detalles del requerimiento</label>
-              <textarea id="message" rows="4" required placeholder="Describe el producto a almacenar, tiempo estimado y volumen requerido..." class="form-input"></textarea>
+              <textarea id="message" name="message" rows="4" required placeholder="Describe el producto a almacenar, tiempo estimado y volumen requerido..." class="form-input"></textarea>
             </div>
 
-            <button type="submit" class="btn-primary form-submit-btn">
+            <button type="submit" id="submitBtn" class="btn-primary form-submit-btn">
               Enviar mensaje
             </button>
-            <div id="formStatus" class="form-status"></div>
+            <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
           </form>
         </div>
       </div>
@@ -156,6 +169,7 @@ import Layout from '../layouts/Layout.astro';
 
   .form-input:focus { border-color: var(--color-primary); box-shadow: 0 0 15px var(--color-primary-glow); }
   .form-submit-btn { width: 100%; margin-top: 0.5rem; }
+  .form-submit-btn:disabled { opacity: 0.65; cursor: wait; }
   .form-status { font-size: 0.95rem; font-weight: 600; text-align: center; min-height: 24px; }
 
   @media (max-width: 868px) {
@@ -165,16 +179,46 @@ import Layout from '../layouts/Layout.astro';
 </style>
 
 <script>
-  const form = document.getElementById('contactForm') as HTMLFormElement;
+  const form = document.getElementById('contactForm') as HTMLFormElement | null;
   const status = document.getElementById('formStatus');
+  const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement | null;
 
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (status) {
-        status.style.color = '#1E537F';
-        status.textContent = '¡Gracias por tu mensaje! Un asesor de ClimaCold te contactará en breve.';
+      if (!status || !submitBtn) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+      status.style.color = '#1E537F';
+      status.textContent = 'Enviando tu mensaje...';
+
+      try {
+        const formData = Object.fromEntries(new FormData(form).entries());
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+        const data = (await response.json().catch(() => ({}))) as { success?: boolean | string; message?: string };
+
+        if (!response.ok || (data.success !== true && data.success !== 'true')) {
+          throw new Error(data.message || 'No se pudo enviar el mensaje');
+        }
+
+        status.style.color = '#15803d';
+        status.textContent = '¡Mensaje enviado! Un asesor de ClimaCold te contactará en breve.';
         form.reset();
+      } catch (error) {
+        const detail = error instanceof Error && error.message ? ` Detalle: ${error.message}` : '';
+        status.style.color = '#b91c1c';
+        status.textContent = `No pudimos enviar tu mensaje.${detail} Si es la primera vez, revisa leninisrael15@gmail.com y confirma la activación del formulario.`;
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar mensaje';
       }
     });
   }
